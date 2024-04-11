@@ -18,5 +18,13 @@
   "dependencies": {
     "@prisma/client": "^5.12.1",
     "mqtt": "^5.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lassewolpmann/esp32-aht10-mqtt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lassewolpmann/esp32-aht10-mqtt/issues"
+  },
+  "homepage": "https://github.com/lassewolpmann/esp32-aht10-mqtt#readme"
 }
