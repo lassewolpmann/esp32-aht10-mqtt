@@ -5,12 +5,10 @@ COPY package*.json ./
 USER node
 ARG DATABASE_URL
 ENV DATABASE_URL=$DATABASE_URL
-RUN ["npm", "ci"]
+RUN npm ci
 COPY --chown=node:node . .
 RUN npx prisma db pull
 RUN mkdir -p prisma/migrations/0_init
 RUN npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/0_init/migration.sql
-RUN npx prisma migrate resolve --applied 0_init
-RUN npm install @prisma/client
-RUN npx prisma generate
+RUN npx prisma migrate resolve --applied 0_init; npx install @prisma/client; npx prisma generate
 CMD ["npx", "ts-node", "index.ts"]
