@@ -36,6 +36,7 @@ async function main() {
     client.on('message', async (topic, payload) => {
         const dataString = payload.toString();
         const dataJson: TempHumidityDate = JSON.parse(dataString);
+        console.log(dataJson);
 
         await prisma.tempHumidityData.create({
             data: {
